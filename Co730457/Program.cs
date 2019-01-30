@@ -10,7 +10,8 @@ namespace Co730457
     {
         static void Main(string[] args)
         {
-
+            countryside blue = new countryside();
+            blue.launch();
         }
     }
     class Village
@@ -28,13 +29,17 @@ namespace Co730457
         Village Maple = new Village();
         Village Toronto = new Village();
         Village Ajax = new Village();
-
         Village First;
         Village Last;
+        Village Temp;
+       
 
         public void launch()
         {
-            Maple.Villagename = "Maple";
+            
+             First = Maple;
+            Last = Ajax;
+                Maple.Villagename = "Maple";
             Maple.nextVillage = Toronto;
             Maple.previousVillage = null;
             Toronto.Villagename = "Toronto:";
@@ -43,10 +48,24 @@ namespace Co730457
             Ajax.Villagename = " Ajax";
             Ajax.nextVillage = null;
             Ajax.previousVillage = Toronto;
+
+            Console.WriteLine(this.displayMap());
             
 
 
 
+        }
+        public string displayMap()
+        {
+            string listOfCities = "";
+            // what problem do i need to solve?
+            
+                listOfCities = listOfCities + First.Villagename + "-----";
+            Temp = First.nextVillage;
+            listOfCities = listOfCities + Temp.Villagename +"-------";
+
+
+            return listOfCities;
         }
     }
 }
